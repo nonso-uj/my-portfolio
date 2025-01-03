@@ -1,6 +1,6 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import { createBrowserRouter, RouterProvider } from "react-router"
+import { createBrowserRouter, RouterProvider } from "react-router-dom"
 import HomePage from "./pages/HomePage"
 import AboutPage from "./pages/AboutPage"
 import ProjectsPage from "./pages/ProjectsPage"
