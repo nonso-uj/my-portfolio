@@ -1,100 +1,150 @@
 import { FiArrowUpRight } from 'react-icons/fi'
 import Navbar from '../components/Navbar'
 import { Link } from 'react-router-dom'
+import { FaGithub, FaInstagram, FaLinkedinIn } from 'react-icons/fa'
+import { FaXTwitter } from 'react-icons/fa6'
+import React, { useEffect, useRef, useState } from 'react'
+import Modal from '../components/Modal'
+import { projects, uuidGen } from '../utils'
 
 const HomePage = () => {
+  const [openModal, setOpenModal] = useState(false);
+  
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+  
+  useEffect(() => {
+    if (openModal) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [openModal]);
+
   return (
-    <div className='w-full h-auto'>
-      <Navbar />
+    // <div className="w-full bg-black bg-[url('/img/background.png')] bg-center bg-cover">
+    <React.Fragment>
+      <div className="w-full bg-black">
+        <Navbar />
 
-      <div className='grid grid-cols-4 font-semibold text-xl py-5'>
-        <div>&nbsp;</div>
-        <div>
-          <p>Currently Full-Stack<br />Engineer at Dropp</p>
-        </div>
-        <div>
-          <p>Based in Lagos,<br />Nigeria</p>
-        </div>
-        <div>&nbsp;</div>
-      </div>
+        <div className='w-full h-fit min-h-svh flex flex-row items-center justify-center border-b border-[#c7c7c735] border-solid pt-24 lg:pt-0 pb-10 lg:pb-0'>
+          <div className='h-full w-full lg:w-5/6 flex flex-col lg:flex-row items-center justify-center gap-x-10 gap-y-12'>
+            <div className='w-11/12 lg:w-1/2 h-full flex flex-col items-start justify-center gap-y-4'>
+              <p className='text-white text-3xl lg:text-6xl font_bold font-medium tracking-tighter'>HI, I AM <br />CHINONSO UDONNE.</p>
+              <p className='text-secondary font_regular text-base'>A passionate software engineer based in Lagos, Nigeria, currently working at Dropp. I specialize in building scalable applications, delivering seamless user experiences, and tackling complex problems with creative solutions.</p>
 
-      <div className='w-full h-fit flex flex-row items-center justify-center'>
-        <div className='w-2/5 h-[90vh] p-10 overflow-hidden'>
-          <div className='w-full h-full flex flex-col justify-between items-center gap-y-20 overflow-hidden'>
-            <img src="/img/home.jpg" className='w-[24rem] h-auto hover:scale-105 duration-300 object-cover object-center' alt="" />
-            <img src="/img/home.jpg" className='opacity-0 w-[24rem] h-auto hover:scale-105 duration-300 object-cover object-center' alt="" />
-          </div>
-        </div>
-        <div className='w-3/5 h-[90vh] p-10 overflow-hidden'>
-          <div className='w-full h-full flex flex-col items-center justify-between'>
-            <p className='font-semibold text-[7.5rem] leading-[0.85] text-end'>SOFTWARE<br />ENGINEER</p>
-            <p className='font-semibold text-[7.5rem] leading-[0.85] text-end'>CHINONSO<br />UDONNE</p>
-          </div>
-        </div>
-      </div>
+              <div className='flex flex-row items-center justify-start gap-x-5'>
+                <a href='mailto:nonso.udonne@gmail.com'>
+                  <button className='flex flex-row items-center justify-center gap-x-2 lg:gap-x-5 bg-black text-sm font-semibold font_regular text-[#D3E97A] rounded-full p-3 hover:bg-[#D3E97A] border-2 border-[#D3E97A] hover:text-black duration-500 hover:pr-6'><span>CONTACT ME</span> <FiArrowUpRight size={20} /></button>
+                </a>
 
-      <div className='w-full h-auto min-h-screen py-24 space-y-24'>
-        <div className='w-full h-fit flex flex-row items-center justify-around'>
-          <div>
-            <img src="/img/home.jpg" className='w-[24rem] h-auto hover:scale-105 duration-300 object-cover object-center' alt="" />
-          </div>
-          <div className='w-3/5 p-5 text-4xl font-medium uppercase space-y-10'>
-            <p>Passionate about web technologies. I love working at the intersection of creativity and user friendly interfaces. I create memorable web experiences.</p>
-            <p>When I'm not building or exploring new web experiences, I'm probably playing games or watching football.</p>
-          </div>
-        </div>
-
-        <div className='w-full h-fit flex flex-row items-center justify-around'>
-          <div className='w-3/5 p-5 text-4xl font-medium uppercase space-y-10'>
-            <p>Passionate about web technologies. I love working at the intersection of creativity and user friendly interfaces. I create memorable web experiences.</p>
-            <p>When I'm not building or exploring new web experiences, I'm probably playing games or watching football.</p>
-          </div>
-          <div>
-            <Link to={'/about'} className='inline'>
-              <button className='h-64 w-64 bg-black text-white rounded-full text-3xl hover:scale-110 duration-300'>More about me</button>
-            </Link>
-          </div>
-        </div>
-      </div>
-
-      <div className='w-full px-10'>
-        <p className='text-2xl font-bold mb-10 px-10'>RECENT PROJECTS</p>
-
-        <div className='w-full'>
-          {[0,1,2,3,4].map(item => (
-            <Link key={item} to={'/'} className='inline'>
-              <div className='relative h-[80vh] w-full flex flex-row items-start justify-between p-10'>
-                <div className='h-full w-1/2'>
-                  <div className='sticky top-20 w-full h-fit space-y-10'>
-                    <p className='text-[7rem] font-semibold leading-[0.85]'>PROJECT NAME</p>
-                    <p className='text-xl font-medium leading-[0.85]'>SHORT DESCRIPTIVE TEXT</p>
-                  </div>
-                </div>
-                <div className='h-full w-1/2 overflow-hidden'>
-                  <img src="img/home.jpg" className='w-full h-full object-cover object-center hover:scale-110 duration-300' alt="" />
-                </div>
+                <Link to={''} className='inline w-fit h-fit p-3 rounded-full icon-outer duration-500'>
+                  <FaGithub size={25} className='icon-inner duration-500' />
+                </Link>
+                
+                <Link to={''} className='w-fit h-fit p-3 rounded-full icon-outer duration-500'>
+                  <FaLinkedinIn size={25} className='icon-inner duration-300' />
+                </Link>
               </div>
-            </Link>
-          ))}
+            </div>
+
+            <div className='w-full lg:w-1/2 h-full flex flex-col justify-center items-center'>
+              <div className='w-11/12 lg:w-3/4 h-5/6'>
+                <img src="/img/hero.jpg" className='w-full h-full object-cover object-center rounded-xl' alt="" />
+              </div>
+            </div>
+          </div>
         </div>
-        <div className='w-full p-10 flex flex-row items-center justify-center'>
-          <Link to={'/projects'} className='inline'>
-            <button className='flex gap-x-3 px-10 py-5 text-lg font-medium bg-black text-white rounded-full hover:scale-110 duration-300'>SEE MORE PROJECTS <FiArrowUpRight size={30} /></button>
-          </Link>
+
+        <div className='w-full min-h-svh flex flex-row items-stretch justify-center border-b border-[#c7c7c735] border-solid bg-black'>
+          <div className='w-11/12 lg:w-4/5 h-full flex flex-col lg:flex-row justify-center items-start gap-x-10 gap-y-10 py-20'>
+            <div className='w-full lg:w-1/2 h-full'>
+              <p className='text-center lg:text-left text-white text-3xl lg:text-7xl font_bold font-semibold'>ABOUT ME</p>
+            </div>
+            <div className='w-full lg:w-1/2 h-full'>
+              <p className='text-white text-base lg:text-2xl font-semibold lg:font-normal font_regular'>
+                I’m a software engineer based in Lagos, Nigeria, with a passion for creating impactful digital experiences.
+              </p>
+
+              <p className='text-secondary text-base font_regular my-4 lg:my-8'>
+                Driven by problem-solving, I thrive in building user-centered applications that are both functional and intuitive. I'm always looking to learn new technologies and refine my skills. When I’m not coding, I enjoy football, photography, and exploring new creative pursuits.
+              </p>
+
+              <Link to={'/about'} className='mt-5'>
+                <p className='text-center lg:text-left font-semibold text-special font_regular underline decoration-dotted hover:decoration-solid decoration-[#D3E97A] underline-offset-[6px]'>MORE ABOUT ME</p>
+              </Link>
+            </div>
+          </div>
+        </div>
+
+        <div className='w-full border-b border-[#c7c7c735] border-solid'>
+          <div className='w-11/12 lg:w-4/5 mx-auto'>
+            <div className='w-full pt-16 pb-8 lg:pb-24 space-y-5'>
+              <p className='text-3xl lg:text-5xl font_bold font-semibold uppercase text-white'>Featured Projects</p>
+              <p className='text-base lg:text-lg font_regular text-secondary w-full lg:w-1/2'>Explore some of my projects that highlight my expertise in building impactful, user-focused applications.</p>
+            </div>
+            
+            <div className='w-full space-y-20 lg:space-y-24'>
+              {projects.slice(0, 3).map(item => (
+                <Link key={uuidGen()} to={'/'} className='block cursor-pointer' onClick={() => setOpenModal(true)}>
+                  <div className='relative h-fit lg:h-[80vh] w-full flex flex-col lg:flex-row items-start justify-between gap-y-5 lg:py-10'>
+                    <div className='order-2 lg:order-1 h-full w-full lg:w-1/2'>
+                      <div className='lg:sticky lg:top-20 w-full h-fit space-y-3 lg:space-y-10'>
+                        <p className='text-3xl lg:text-4xl font-semibold leading-[0.85] text-white'>PROJECT NAME</p>
+                        <p className='text-sm lg:text-base font-medium leading-[0.85] text-secondary'>SHORT DESCRIPTIVE TEXT</p>
+                      </div>
+                    </div>
+                    <div className='order-1 lg:order-2 h-full w-full lg:w-1/2 rounded-lg bg-[#1A1A1A] flex flex-col items-center justify-center p-3 lg:p-0'>
+                      <img src="img/home.jpg" className='w-full lg:w-4/5 h-auto lg:h-3/5 object-cover object-center rounded-lg hover:scale-110 duration-500' alt="" />
+                    </div>
+                  </div>
+                </Link>
+              ))}
+            </div>
+            
+            <div className='w-full p-10 flex flex-row items-center justify-center'>
+              <Link to={'/projects'} className='inline'>
+                <button className='flex flex-row items-center justify-center gap-x-5 bg-black text-sm font-semibold font_regular text-[#D3E97A] rounded-full p-3 hover:bg-[#D3E97A] border-2 border-[#D3E97A] hover:text-black duration-300'>SEE MORE PROJECTS <FiArrowUpRight size={20} /></button>
+              </Link>
+            </div>
+          </div>
+        </div>
+
+        <div className='w-full h-fit min-h-[50vh] lg:min-h-[80vh] px-2 lg:px-20'>
+          <div className='w-11/12 lg:w-4/5 mx-auto py-16'>
+            <p className='text-lg font_regular mb-10 text-secondary'>Let's connect</p>
+
+            <div className='w-full overflow-hidden'>
+              <a href="mailto:nonso.udonne@gmail.com" className='text-[1.8rem] lg:text-[6rem] font-semibold tracking-tighter text-white'>
+                <p className='font_bold underline decoration-dotted hover:decoration-solid underline-offset-4 lg:underline-offset-[1rem] decoration-2 lg:decoration-8 leading-[1.3] duration-700'>HELLO@<br />NONSOUDONNE.COM</p>
+              </a>
+            </div>
+
+            <div className='w-full py-10 flex flex-row items-center justify-center gap-x-5'>
+              <Link to={''} className='inline w-fit h-fit p-3 rounded-full icon-outer duration-500'>
+                <FaLinkedinIn size={25} className='icon-inner duration-500' />
+              </Link>
+              <Link to={''} className='inline w-fit h-fit p-3 rounded-full icon-outer duration-500'>
+                <FaGithub size={25} className='icon-inner duration-500' />
+              </Link>
+              <Link to={''} className='inline w-fit h-fit p-3 rounded-full icon-outer duration-500'>
+                <FaXTwitter size={25} className='icon-inner duration-500' />
+              </Link>
+              <Link to={''} className='inline w-fit h-fit p-3 rounded-full icon-outer duration-500'>
+                <FaInstagram size={25} className='icon-inner duration-500' />
+              </Link>
+            </div>
+          </div>
         </div>
       </div>
 
-      <div className='w-full h-fit min-h-[80vh] px-20'>
-        <p className='text-2xl font-bold mb-10'>SEND ME A MESSAGE ...</p>
-
-        <div className='w-full overflow-hidden'>
-          <a href="mailto:nonso.udonne@gmail.com" className='text-[8rem] font-semibold tracking-tighter'>
-            <p className='leading-[1.2]'>HELLO@</p>
-            <p className='underline decoration-dotted underline-offset-[1rem] decoration-8 leading-[1.2]'>NONSOUDONNE.COM</p>
-          </a>
-        </div>
-      </div>
-    </div>
+      <Modal openModal={openModal} setOpenModal={setOpenModal} />
+    </React.Fragment>
   )
 }
 

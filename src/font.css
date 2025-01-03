@@ -1,0 +1,18 @@
+@font-face {
+    font-family: "bebas";
+    src: local("bibas"), url(/fonts/BebasNeue-Regular.ttf) format("woff");
+}
+
+@font-face {
+    font-family: "manrope";
+    src: local("manrope"), url(/fonts/Manrope-VariableFont_wght.ttf) format("woff");
+}
+
+.font_bold {
+    font-family: bebas;
+}
+
+.font_regular {
+    font-family: manrope;
+}
+  
