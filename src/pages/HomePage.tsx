@@ -3,12 +3,13 @@ import Navbar from '../components/Navbar'
 import { Link } from 'react-router-dom'
 import { FaGithub, FaInstagram, FaLinkedinIn } from 'react-icons/fa'
 import { FaXTwitter } from 'react-icons/fa6'
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Modal from '../components/Modal'
 import { projects, uuidGen } from '../utils'
 
 const HomePage = () => {
   const [openModal, setOpenModal] = useState(false);
+  const [currentProject, setCurrentProject] = useState({});
   
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -43,11 +44,11 @@ const HomePage = () => {
                   <button className='flex flex-row items-center justify-center gap-x-2 lg:gap-x-5 bg-black text-sm font-semibold font_regular text-[#D3E97A] rounded-full p-3 hover:bg-[#D3E97A] border-2 border-[#D3E97A] hover:text-black duration-500 hover:pr-6'><span>CONTACT ME</span> <FiArrowUpRight size={20} /></button>
                 </a>
 
-                <Link to={''} className='inline w-fit h-fit p-3 rounded-full icon-outer duration-500'>
+                <Link to={'https://github.com/nonso-uj'} target='_blank' className='inline w-fit h-fit p-3 rounded-full icon-outer duration-500'>
                   <FaGithub size={25} className='icon-inner duration-500' />
                 </Link>
                 
-                <Link to={''} className='w-fit h-fit p-3 rounded-full icon-outer duration-500'>
+                <Link to={'https://www.linkedin.com/in/nonso-uj/'} target='_blank' className='w-fit h-fit p-3 rounded-full icon-outer duration-500'>
                   <FaLinkedinIn size={25} className='icon-inner duration-300' />
                 </Link>
               </div>
@@ -91,16 +92,19 @@ const HomePage = () => {
             
             <div className='w-full space-y-20 lg:space-y-24'>
               {projects.slice(0, 3).map(item => (
-                <Link key={uuidGen()} to={'/'} className='block cursor-pointer' onClick={() => setOpenModal(true)}>
+                <Link key={uuidGen()} to={'/'} className='block cursor-pointer' onClick={() => {
+                  setOpenModal(true);
+                  setCurrentProject(item)
+                }}>
                   <div className='relative h-fit lg:h-[80vh] w-full flex flex-col lg:flex-row items-start justify-between gap-y-5 lg:py-10'>
                     <div className='order-2 lg:order-1 h-full w-full lg:w-1/2'>
                       <div className='lg:sticky lg:top-20 w-full h-fit space-y-3 lg:space-y-10'>
-                        <p className='text-3xl lg:text-4xl font-semibold leading-[0.85] text-white'>PROJECT NAME</p>
-                        <p className='text-sm lg:text-base font-medium leading-[0.85] text-secondary'>SHORT DESCRIPTIVE TEXT</p>
+                        <p className='text-3xl lg:text-4xl font-semibold leading-[0.85] text-white uppercase'>{item.title}</p>
+                        <p className='text-sm lg:text-base font-medium leading-[0.85] text-secondary'>{item.excerpt}</p>
                       </div>
                     </div>
                     <div className='order-1 lg:order-2 h-full w-full lg:w-1/2 rounded-lg bg-[#1A1A1A] flex flex-col items-center justify-center p-3 lg:p-0'>
-                      <img src="img/home.jpg" className='w-full lg:w-4/5 h-auto lg:h-3/5 object-cover object-center rounded-lg hover:scale-110 duration-500' alt="" />
+                      <img src={item.images[0]} className='w-full lg:w-4/5 h-auto lg:h-3/5 object-cover object-center rounded-lg hover:scale-110 duration-500' alt="" />
                     </div>
                   </div>
                 </Link>
@@ -126,16 +130,16 @@ const HomePage = () => {
             </div>
 
             <div className='w-full py-10 flex flex-row items-center justify-center gap-x-5'>
-              <Link to={''} className='inline w-fit h-fit p-3 rounded-full icon-outer duration-500'>
+              <Link to={'https://www.linkedin.com/in/nonso-uj/'} target='_blank' className='inline w-fit h-fit p-3 rounded-full icon-outer duration-500'>
                 <FaLinkedinIn size={25} className='icon-inner duration-500' />
               </Link>
-              <Link to={''} className='inline w-fit h-fit p-3 rounded-full icon-outer duration-500'>
+              <Link to={'https://github.com/nonso-uj'} target='_blank' className='inline w-fit h-fit p-3 rounded-full icon-outer duration-500'>
                 <FaGithub size={25} className='icon-inner duration-500' />
               </Link>
-              <Link to={''} className='inline w-fit h-fit p-3 rounded-full icon-outer duration-500'>
+              <Link to={'https://x.com/nonso_uj'} target='_blank' className='inline w-fit h-fit p-3 rounded-full icon-outer duration-500'>
                 <FaXTwitter size={25} className='icon-inner duration-500' />
               </Link>
-              <Link to={''} className='inline w-fit h-fit p-3 rounded-full icon-outer duration-500'>
+              <Link to={'https://www.instagram.com/nonso_uj/'} target='_blank' className='inline w-fit h-fit p-3 rounded-full icon-outer duration-500'>
                 <FaInstagram size={25} className='icon-inner duration-500' />
               </Link>
             </div>
@@ -143,7 +147,7 @@ const HomePage = () => {
         </div>
       </div>
 
-      <Modal openModal={openModal} setOpenModal={setOpenModal} />
+      <Modal openModal={openModal} setOpenModal={setOpenModal} currentProject={currentProject} />
     </React.Fragment>
   )
 }

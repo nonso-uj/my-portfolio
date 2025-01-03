@@ -1,6 +1,5 @@
-import { AnimatePresence, motion, useScroll, useTransform } from "framer-motion"
-import { div } from "framer-motion/client";
-import { useEffect, useRef, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion"
+import { useState } from "react";
 import { FaCheck } from "react-icons/fa";
 import { FaXmark } from "react-icons/fa6";
 import { uuidGen } from "../utils";
@@ -10,7 +9,11 @@ const Modal = ({ openModal, setOpenModal, currentProject }: any) => {
 //   const { scrollYProgress } = useScroll({ target: targetRef, })
 //   const x = useTransform(scrollYProgress, [0, 1], ["1%", "-105%"]);
 
-    const [alive, setAlive] = useState("")
+    const [alive, setAlive] = useState("");
+
+    if("something" === alive){
+        setAlive('somesome');
+    }
 
   return (
     <AnimatePresence>
@@ -19,7 +22,7 @@ const Modal = ({ openModal, setOpenModal, currentProject }: any) => {
                 <div className="relative bg-gradient-to-b from-neutral-700 to-neutral-900 w-full" style={{ height: '800nvh', minHeight: '800nvh' }}>
                     <div className={`sticky top-0 w-full h-auto lg:h-svh flex flex-col justify-start items-stretch overflow-x-hidden`}>
                         <div className='w-full lg:w-5/6 mx-auto flex flex-row justify-between items-center font_regular py-5 px-5 lg:py-10 lg:px-0'>
-                            <div className="w-full lg:w-3/4 flex flex-col lg:flex-row justify-between items-start lg:items-center gap-y-3">
+                            <div className={`w-full ${currentProject?.github ? 'lg:w-3/4' : 'lg:w-1/2'} flex flex-col lg:flex-row justify-between items-start lg:items-center gap-y-3`}>
                                 <p className='text-base lg:text-xl font-semibold text-white'>{currentProject.title}</p>
 
                                 {currentProject.projectType === "static" || (currentProject.projectType === "dynamic" && alive === "alive") ? (
@@ -40,7 +43,7 @@ const Modal = ({ openModal, setOpenModal, currentProject }: any) => {
                                 )}
 
                                 {currentProject?.github && (
-                                    <a href={currentProject?.github} className='text-base lg:text-xl font-semibold text-white border-b-2 pb-1 px-2'>Github link</a>
+                                    <a href={currentProject?.github} target="_blank" className='text-base lg:text-xl font-semibold text-white border-b-2 pb-1 px-2'>Github link</a>
                                 )}
                             </div>
 

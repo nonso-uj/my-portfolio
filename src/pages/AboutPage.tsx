@@ -75,19 +75,19 @@ const AboutPage = () => {
               </div> */}
 
               <div className='w-full py-10 flex flex-row items-center justify-start gap-x-2 lg:gap-x-5'>
-                <Link to={''} className='inline w-fit h-fit p-3 rounded-full icon-outer duration-500'>
+                <Link to={'mailto:nonso.udonne@gmail.com'} className='inline w-fit h-fit p-3 rounded-full icon-outer duration-500'>
                   <IoMdMail size={25} className='icon-inner duration-500' />
                 </Link>
-                <Link to={''} className='inline w-fit h-fit p-3 rounded-full icon-outer duration-500'>
+                <Link to={'https://www.linkedin.com/in/nonso-uj/'} target='_blank' className='inline w-fit h-fit p-3 rounded-full icon-outer duration-500'>
                   <FaLinkedinIn size={25} className='icon-inner duration-500' />
                 </Link>
-                <Link to={''} className='inline w-fit h-fit p-3 rounded-full icon-outer duration-500'>
+                <Link to={'https://github.com/nonso-uj'} target='_blank' className='inline w-fit h-fit p-3 rounded-full icon-outer duration-500'>
                   <FaGithub size={25} className='icon-inner duration-500' />
                 </Link>
-                <Link to={''} className='inline w-fit h-fit p-3 rounded-full icon-outer duration-500'>
+                <Link to={'https://x.com/nonso_uj'} target='_blank' className='inline w-fit h-fit p-3 rounded-full icon-outer duration-500'>
                   <FaXTwitter size={25} className='icon-inner duration-500' />
                 </Link>
-                <Link to={''} className='inline w-fit h-fit p-3 rounded-full icon-outer duration-500'>
+                <Link to={'https://www.instagram.com/nonso_uj/'} target='_blank' className='inline w-fit h-fit p-3 rounded-full icon-outer duration-500'>
                   <FaInstagram size={25} className='icon-inner duration-500' />
                 </Link>
               </div>
@@ -133,7 +133,7 @@ const AboutPage = () => {
                 </div>
               ))}
 
-              <Link to={'/about'} className='mt-20 lg:mt-8 block !border-none'>
+              <Link to={'/pdf/Udonne_Chinonso_Backend_Developer_Resume.pdf'} target="_blank" className='mt-20 lg:mt-8 block !border-none'>
                 <p className='flex flex-row items-center justify-center lg:justify-start gap-x-3 pl-0 lg:pl-40 font-semibold text-special hover:text-neutral-300/60 font_regular underline decoration-dotted hover:no-underline decoration-[#D3E97A] underline-offset-[6px]'>View Full Résumé <MdArrowOutward size={18} /></p>
               </Link>
             </div>
