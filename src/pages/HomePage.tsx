@@ -28,7 +28,6 @@ const HomePage = () => {
   }, [openModal]);
 
   return (
-    // <div className="w-full bg-black bg-[url('/img/background.png')] bg-center bg-cover">
     <React.Fragment>
       <div className="w-full bg-black">
         <Navbar />
