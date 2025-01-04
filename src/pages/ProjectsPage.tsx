@@ -43,8 +43,8 @@ const ProjectsPage = () => {
                 setOpenModal(true);
                 setCurrentProject(item)
               }}>
-                <div className=''>
-                  <LazyLoadImage src={item.images[0]} className='w-full h-48 object-cover object-top rounded-t-2xl' placeholderSrc="img/preload2.jpg" alt="" />
+                <div className='w-full h-48 overflow-hidden'>
+                  <LazyLoadImage src={item.images[0]} className='w-full h-auto object-cover object-top rounded-t-2xl' placeholderSrc="img/preload2.jpg" alt="" />
                 </div>
                 <div className='p-4 space-y-4'>
                   <p className='text-secondary text-2xl font-semibold'>{ item.title }</p>
