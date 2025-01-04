@@ -81,7 +81,7 @@ const Modal = ({ openModal, setOpenModal, currentProject }: any) => {
                                 <motion.div className='lg:absolute lg:top-0 w-full lg:w-auto h-full flex flex-col lg:flex-row items-center justify-start gap-x-10 gap-y-10'>
                                     {currentProject.images.map((img: any) => (
                                     <div key={uuidGen()} className='h-auto lg:h-5/6 w-full lg:w-[40vw] overflow-hidden'>
-                                        <img src={img} className='h-full w-auto object-cover object-center' alt="projectImg" />
+                                        <img src={img} className='h-full w-full object-cover object-center' alt="projectImg" />
                                     </div>
                                     ))}
                                 </motion.div>

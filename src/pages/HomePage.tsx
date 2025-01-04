@@ -96,11 +96,11 @@ const HomePage = () => {
                   setOpenModal(true);
                   setCurrentProject(item)
                 }}>
-                  <div className='relative h-fit lg:h-[80vh] w-full flex flex-col lg:flex-row items-start justify-between gap-y-5 lg:py-10'>
+                  <div className='relative h-fit lg:h-[80vh] w-full flex flex-col lg:flex-row items-start justify-between gap-y-5 gap-x-5 lg:py-10'>
                     <div className='order-2 lg:order-1 h-full w-full lg:w-1/2'>
                       <div className='lg:sticky lg:top-20 w-full h-fit space-y-3 lg:space-y-10'>
                         <p className='text-3xl lg:text-4xl font-semibold leading-[0.85] text-white uppercase'>{item.title}</p>
-                        <p className='text-sm lg:text-base font-medium leading-[0.85] text-secondary'>{item.excerpt}</p>
+                        <p className='text-sm lg:text-base text-secondary'>{item.excerpt}</p>
                       </div>
                     </div>
                     <div className='order-1 lg:order-2 h-full w-full lg:w-1/2 rounded-lg bg-[#1A1A1A] flex flex-col items-center justify-center p-3 lg:p-0'>
