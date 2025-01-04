@@ -4,6 +4,7 @@ import { FaCheck } from "react-icons/fa";
 import { FaXmark } from "react-icons/fa6";
 import { uuidGen } from "../utils";
 import { LazyLoadImage } from "react-lazy-load-image-component";
+import 'react-lazy-load-image-component/src/effects/blur.css';
 
 const Modal = ({ openModal, setOpenModal, currentProject }: any) => {
 //   const targetRef = useRef(null);

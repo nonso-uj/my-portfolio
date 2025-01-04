@@ -7,6 +7,7 @@ import React, { useEffect, useState } from 'react'
 import Modal from '../components/Modal'
 import { projects, uuidGen } from '../utils'
 import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 
 const HomePage = () => {
   const [openModal, setOpenModal] = useState(false);
