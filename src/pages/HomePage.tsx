@@ -103,8 +103,8 @@ const HomePage = () => {
                         <p className='text-sm lg:text-base text-secondary'>{item.excerpt}</p>
                       </div>
                     </div>
-                    <div className='order-1 lg:order-2 h-full w-full lg:w-1/2 rounded-lg bg-[#1A1A1A] flex flex-col items-center justify-center p-3 lg:p-0'>
-                      <LazyLoadImage src={item.images[0]} className='w-full lg:w-4/5 h-auto lg:h-3/5 object-cover object-center rounded-lg hover:scale-110 duration-500' placeholderSrc="img/preload2.jpg" alt="" />
+                    <div className='order-1 lg:order-2 h-full w-full lg:w-1/2 rounded-lg bg-[#1A1A1A] flex flex-col items-center justify-center p-5 lg:p-14'>
+                      <LazyLoadImage src={item.images[0]} className='w-full h-auto object-cover object-center rounded-lg hover:scale-110 duration-500' placeholderSrc="img/preload2.jpg" alt="" />
                     </div>
                   </div>
                 </Link>
