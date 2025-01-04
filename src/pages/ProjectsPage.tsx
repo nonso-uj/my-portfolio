@@ -4,6 +4,7 @@ import { SlGlobe } from 'react-icons/sl'
 import { useEffect, useState } from 'react'
 import Modal from '../components/Modal'
 import { projects, uuidGen } from '../utils'
+import { LazyLoadImage } from 'react-lazy-load-image-component'
 
 
 const ProjectsPage = () => {
@@ -43,7 +44,7 @@ const ProjectsPage = () => {
                 setCurrentProject(item)
               }}>
                 <div className=''>
-                  <img src={item.images[0]} className='w-full h-48 object-cover object-top rounded-t-2xl' alt="" />
+                  <LazyLoadImage src={item.images[0]} className='w-full h-48 object-cover object-top rounded-t-2xl' placeholderSrc="img/preload2.jpg" alt="" />
                 </div>
                 <div className='p-4 space-y-4'>
                   <p className='text-secondary text-2xl font-semibold'>{ item.title }</p>

@@ -6,6 +6,7 @@ import { FaXTwitter } from 'react-icons/fa6'
 import React, { useEffect, useState } from 'react'
 import Modal from '../components/Modal'
 import { projects, uuidGen } from '../utils'
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 const HomePage = () => {
   const [openModal, setOpenModal] = useState(false);
@@ -55,7 +56,7 @@ const HomePage = () => {
 
             <div className='w-full lg:w-1/2 h-full flex flex-col justify-center items-center'>
               <div className='w-11/12 lg:w-3/4 h-5/6'>
-                <img src="/img/hero.jpg" className='w-full h-full object-cover object-center rounded-xl' alt="" />
+                <LazyLoadImage  src="/img/hero.jpg" className='w-full h-full object-cover object-center rounded-xl' placeholderSrc='/img/preload.jpg' alt="" />
               </div>
             </div>
           </div>
@@ -103,7 +104,7 @@ const HomePage = () => {
                       </div>
                     </div>
                     <div className='order-1 lg:order-2 h-full w-full lg:w-1/2 rounded-lg bg-[#1A1A1A] flex flex-col items-center justify-center p-3 lg:p-0'>
-                      <img src={item.images[0]} className='w-full lg:w-4/5 h-auto lg:h-3/5 object-cover object-center rounded-lg hover:scale-110 duration-500' alt="" />
+                      <LazyLoadImage src={item.images[0]} className='w-full lg:w-4/5 h-auto lg:h-3/5 object-cover object-center rounded-lg hover:scale-110 duration-500' placeholderSrc="img/preload2.jpg" alt="" />
                     </div>
                   </div>
                 </Link>

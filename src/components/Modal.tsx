@@ -3,6 +3,7 @@ import { useState } from "react";
 import { FaCheck } from "react-icons/fa";
 import { FaXmark } from "react-icons/fa6";
 import { uuidGen } from "../utils";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 const Modal = ({ openModal, setOpenModal, currentProject }: any) => {
 //   const targetRef = useRef(null);
@@ -37,7 +38,7 @@ const Modal = ({ openModal, setOpenModal, currentProject }: any) => {
                                     </div>
                                 ) : (
                                     <div className="flex flex-row items-center justify-center gap-x-2">
-                                        <img src="img/loader.svg" className="size-10" alt="loader" />
+                                        <LazyLoadImage src="img/loader.svg" className="size-10" alt="loader" placeholderSrc="img/preload2.jpg" />
                                         <p className='text-base lg:text-xl font-semibold text-white'>Checking site availability...</p>
                                     </div>
                                 )}
@@ -81,7 +82,7 @@ const Modal = ({ openModal, setOpenModal, currentProject }: any) => {
                                 <motion.div className='lg:absolute lg:top-0 w-full lg:w-auto h-full flex flex-col lg:flex-row items-center justify-start gap-x-10 gap-y-10'>
                                     {currentProject.images.map((img: any) => (
                                     <div key={uuidGen()} className='h-auto lg:h-5/6 w-full lg:w-[40vw] overflow-hidden'>
-                                        <img src={img} className='h-full w-full object-cover object-center' alt="projectImg" />
+                                        <LazyLoadImage src={img} className='h-full w-full object-cover object-center' placeholderSrc="img/preload2.jpg" alt="projectImg" />
                                     </div>
                                     ))}
                                 </motion.div>
